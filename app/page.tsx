@@ -1,220 +1,240 @@
-import { useRef } from 'react'
-import Link from 'next/link'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { ChevronRight, CreditCard, MapPin, Zap, Target, TrendingUp, PlayCircle, BarChart3 } from 'lucide-react'
+import { Activity, BarChart2, MapPin, PlayCircle, Smartphone, Users } from 'lucide-react'
+import Link from "next/link"
+import "./globals.css"
 
 export default function LandingPage() {
-  const newsletterRef = useRef<HTMLDivElement>(null)
-
-  const scrollToNewsletter = () => {
-    newsletterRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-black to-gray-800 text-white relative overflow-hidden">
-      {/* Decorative orbs */}
-      <div className="absolute top-20 right-[20%] w-32 h-32 rounded-full bg-gradient-to-br from-gray-500 to-gray-300 blur-2xl opacity-20 animate-float"></div>
-      <div className="absolute top-[40%] left-[10%] w-40 h-40 rounded-full bg-gradient-to-br from-gray-400 to-gray-200 blur-2xl opacity-20 animate-float-delayed"></div>
-      
-      <header className="px-4 lg:px-6 h-16 flex items-center justify-between bg-transparent relative z-10">
-        <Link className="flex items-center" href="#">
-          <CreditCard className="h-6 w-6 text-white" />
-          <span className="ml-2 text-xl font-bold">Xcard</span>
+    <div className="flex flex-col min-h-screen bg-black text-white">
+      <header className="px-4 lg:px-6 h-14 flex items-center border-b border-white/10">
+        <Link className="flex items-center justify-center" href="#">
+          <BarChart2 className="h-6 w-6 mr-2" />
+          <span className="font-bold">xCard</span>
         </Link>
-        <nav>
-          <Button variant="outline" className="border-white text-white bg-transparent hover:bg-white hover:text-black transition-colors" onClick={scrollToNewsletter}>
-            Get Started
-          </Button>
+        <nav className="ml-auto flex gap-4 sm:gap-6">
+          <Link className="text-sm font-medium hover:text-gray-300" href="#features">
+            Features
+          </Link>
+          <Link className="text-sm font-medium hover:text-gray-300" href="#how-it-works">
+            How It Works
+          </Link>
+          <Link className="text-sm font-medium hover:text-gray-300" href="#benefits">
+            Benefits
+          </Link>
         </nav>
       </header>
       <main className="flex-1">
-        {/* Hero section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2 relative z-10">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-white relative z-10" style={{
-                  textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                }}>
-                  Elevate Your Game with Xcard
-                </h1>
-                <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-semibold mt-4">
-                  Democratize Football Analytics
-                </p>
-                <p className="mx-auto max-w-[700px] text-lg sm:text-xl text-gray-300 md:text-2xl mt-6">
-                  Professional-level analytics for every footballer, from Sunday league to semi-pro. No special equipment needed.
-                </p>
-              </div>
-              <div className="space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
-                <Button size="lg" className="bg-white text-black hover:bg-gray-200 w-full sm:w-auto" onClick={scrollToNewsletter}>
-                  Get Started
-                </Button>
-                <Button size="lg" variant="outline" className="border-white text-white bg-transparent hover:bg-white hover:text-black w-full sm:w-auto">
-                  Learn More
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features section */}
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-black to-gray-800 relative">
-          <div className="container px-4 md:px-6 mx-auto">
-            <h2 className="text-[1.53rem] sm:text-[2.68rem] font-bold tracking-tighter text-center mb-12 text-white">Unlock Your Potential with Xcard</h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
-              <Card className="bg-gradient-to-br from-black to-gray-800 border-none hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center space-x-2">
-                    <Zap className="h-6 w-6 text-white" />
-                    <CardTitle className="text-xl sm:text-2xl text-white">Performance Metrics</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300 text-[15px]">Track your speed, distance covered, and intensity levels with the same precision as the pros.</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-gradient-to-br from-black to-gray-800 border-none hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center space-x-2">
-                    <Target className="h-6 w-6 text-white" />
-                    <CardTitle className="text-xl sm:text-2xl text-white">Tactical Analysis</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300 text-[15px]">Gain insights into your positioning, ball control, and decision-making on the field.</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-gradient-to-br from-black to-gray-800 border-none hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center space-x-2">
-                    <TrendingUp className="h-6 w-6 text-white" />
-                    <CardTitle className="text-xl sm:text-2xl text-white">Progress Tracking</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300 text-[15px]">Set goals, track your improvement, and get personalized training recommendations.</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* How Xcard Works section */}
-        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-black to-gray-800 relative">
-          <div className="container px-4 md:px-6 mx-auto">
-            <h2 className="text-[1.53rem] sm:text-[2.68rem] font-bold tracking-tighter text-center mb-12 text-white">How Xcard Works</h2>
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-white to-transparent" style={{ top: '24px', height: 'calc(100% - 48px)' }}></div>
-              <div className="space-y-12">
-                {[
-                  { title: "Visit an Xcard Centre", description: "Come to one of our affiliated centers. No special equipment needed!", icon: MapPin },
-                  { title: "Play Your Game", description: "Enjoy your match or training session while our AI captures your performance.", icon: PlayCircle },
-                  { title: "Game Insights", description: "Receive comprehensive analysis and personalized tips to improve your game.", icon: BarChart3 }
-                ].map((step, index) => (
-                  <div key={index} className={`flex items-center justify-center ${index === 0 ? 'pt-0' : index === 2 ? 'pb-0' : 'py-12'}`}>
-                    <div className="w-1/2 pr-8 text-right">
-                      {index % 2 === 0 && (
-                        <>
-                          <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                          <p className="text-gray-300 text-[15px]">{step.description}</p>
-                        </>
-                      )}
-                    </div>
-                    <div className="z-10">
-                      <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                        <step.icon className="h-6 w-6 text-black" />
-                      </div>
-                    </div>
-                    <div className="w-1/2 pl-8 text-left">
-                      {index % 2 !== 0 && (
-                        <>
-                          <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                          <p className="text-gray-300 text-[15px]">{step.description}</p>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Newsletter section */}
-        <section id="newsletter" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-black to-gray-800 relative" ref={newsletterRef}>
-          <div className="container px-4 md:px-6 mx-auto relative z-10">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+          <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-[1.53rem] sm:text-[2.68rem] font-bold tracking-tighter text-white">Stay Ahead of the Game with Xcard</h2>
-                <p className="mx-auto max-w-[700px] text-base sm:text-lg text-gray-300 md:text-xl">
-                  Subscribe to our newsletter for exclusive insights, tips, and offers that will elevate your performance.
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  Democratizing Football Analytics
+                </h1>
+                <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl">
+                  xCard: Advanced football analytics without expensive sensors or cameras. Play, analyze, improve.
                 </p>
               </div>
-              <div className="w-full max-w-sm space-y-2">
-                <form className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                  <Input
-                    className="flex-1 bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-white focus:ring-white"
-                    placeholder="Enter your email"
-                    type="email"
-                    required
-                  />
-                  <Button type="submit" className="bg-white text-black hover:bg-gray-200 w-full sm:w-auto">
-                    Subscribe
-                  </Button>
-                </form>
-                <p className="text-xs text-gray-400">
-                  By subscribing, you agree to our Terms of Service and Privacy Policy.
+              <div className="space-x-4">
+                <Button variant="default">Get Started</Button>
+                <Button variant="outline">Learn More</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="section-divider"></div>
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Key Features</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="feature-box relative overflow-hidden rounded-lg p-6">
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent opacity-20" style={{ transform: 'rotate(-45deg)', transformOrigin: '0 100%' }}></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <Activity className="h-8 w-8 text-white mr-3" />
+                    <h3 className="text-xl font-bold text-white">AI-Powered Analytics</h3>
+                  </div>
+                  <p className="text-gray-300">Complex algorithms analyze your gameplay without the need for physical sensors.</p>
+                </div>
+              </div>
+              <div className="feature-box relative overflow-hidden rounded-lg p-6">
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent opacity-20" style={{ transform: 'rotate(-45deg)', transformOrigin: '0 100%' }}></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <Smartphone className="h-8 w-8 text-white mr-3" />
+                    <h3 className="text-xl font-bold text-white">Mobile Integration</h3>
+                  </div>
+                  <p className="text-gray-300">Receive detailed stats and insights directly on your smartphone within minutes.</p>
+                </div>
+              </div>
+              <div className="feature-box relative overflow-hidden rounded-lg p-6">
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent opacity-20" style={{ transform: 'rotate(-45deg)', transformOrigin: '0 100%' }}></div>
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <Users className="h-8 w-8 text-white mr-3" />
+                    <h3 className="text-xl font-bold text-white">Accessible to All</h3>
+                  </div>
+                  <p className="text-gray-300">No need to purchase expensive equipment. Just play at our partner centers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="section-divider"></div>
+        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">How It Works</h2>
+            <div className="relative max-w-3xl mx-auto">
+              <div className="absolute left-1/2 w-0.5 bg-gradient-to-b from-white to-transparent" style={{ top: '24px', bottom: '24px', transform: 'translateX(-50%)' }}></div>
+              <div className="space-y-24">
+                <div className="relative flex items-center">
+                  <div className="flex-1 pr-8 text-right">
+                    <h3 className="text-2xl font-bold mb-2 text-white">Visit a Partner Center</h3>
+                    <p className="text-white max-w-xs ml-auto">Find a nearby xCard partner center and book your session.</p>
+                  </div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-10">
+                    <MapPin className="h-6 w-6 text-black" />
+                  </div>
+                </div>
+                <div className="relative flex items-center">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-10">
+                    <PlayCircle className="h-6 w-6 text-black" />
+                  </div>
+                  <div className="flex-1 pl-8 ml-auto">
+                    <h3 className="text-2xl font-bold mb-2 text-white">Play Your Game</h3>
+                    <p className="text-white max-w-xs">Enjoy your football match without any distractions or equipment.</p>
+                  </div>
+                </div>
+                <div className="relative flex items-center">
+                  <div className="flex-1 pr-8 text-right">
+                    <h3 className="text-2xl font-bold mb-2 text-white">Receive Analytics</h3>
+                    <p className="text-white max-w-xs ml-auto">Get comprehensive stats and insights on your mobile device within minutes.</p>
+                  </div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-10">
+                    <Activity className="h-6 w-6 text-black" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="section-divider"></div>
+        <section id="benefits" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Benefits</h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <li className="flex items-start space-x-4">
+                <svg
+                  className="h-6 w-6 text-green-400 mt-1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <div>
+                  <h3 className="font-bold text-xl mb-1">Cost-Effective</h3>
+                  <p className="text-gray-400">No need to invest in expensive equipment or technology.</p>
+                </div>
+              </li>
+              <li className="flex items-start space-x-4">
+                <svg
+                  className="h-6 w-6 text-green-400 mt-1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <div>
+                  <h3 className="font-bold text-xl mb-1">Professional-Grade Analytics</h3>
+                  <p className="text-gray-400">Access the same level of insights as professional players.</p>
+                </div>
+              </li>
+              <li className="flex items-start space-x-4">
+                <svg
+                  className="h-6 w-6 text-green-400 mt-1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <div>
+                  <h3 className="font-bold text-xl mb-1">Improve Your Game</h3>
+                  <p className="text-gray-400">Use data-driven insights to enhance your skills and performance.</p>
+                </div>
+              </li>
+              <li className="flex items-start space-x-4">
+                <svg
+                  className="h-6 w-6 text-green-400 mt-1"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <div>
+                  <h3 className="font-bold text-xl mb-1">Track Progress</h3>
+                  <p className="text-gray-400">Monitor your improvement over time with detailed historical data.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <div className="section-divider"></div>
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Ready to Elevate Your Game?</h2>
+                <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl">
+                  Join xCard today and experience the future of football analytics.
                 </p>
+              </div>
+              <div className="space-x-4">
+                <Button variant="default" size="lg">Sign Up Now</Button>
+                <Button variant="outline" size="lg">Find a Partner Center</Button>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <footer className="w-full py-6 bg-black border-t border-gray-800">
-        <div className="container px-4 md:px-6 mx-auto flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400 text-center sm:text-left">© 2024 Xcard. All rights reserved.</p>
-          <nav className="flex gap-4 sm:gap-6 mt-4 sm:mt-0">
-            <Link className="text-sm hover:underline underline-offset-4 text-gray-400 hover:text-white" href="#">
-              Terms of Service
-            </Link>
-            <Link className="text-sm hover:underline underline-offset-4 text-gray-400 hover:text-white" href="#">
-              Privacy Policy
-            </Link>
-          </nav>
-        </div>
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-white/10">
+        <p className="text-xs text-gray-400">© 2024 xCard. All rights reserved.</p>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <Link className="text-xs hover:underline underline-offset-4 text-gray-400" href="#">
+            Terms of Service
+          </Link>
+          <Link className="text-xs hover:underline underline-offset-4 text-gray-400" href="#">
+            Privacy
+          </Link>
+        </nav>
       </footer>
-
-      <style jsx global>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float-delayed 6s ease-in-out infinite;
-          animation-delay: -3s;
-        }
-        section {
-          position: relative;
-        }
-        section::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: linear-gradient(to right, white, transparent);
-        }
-      `}</style>
     </div>
   )
 }

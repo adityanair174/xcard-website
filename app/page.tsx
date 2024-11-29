@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Activity, BarChart2, MapPin, PlayCircle, Smartphone, Users } from 'lucide-react'
 import Link from "next/link"
-import Image from "next/image"
 
 export default function LandingPage() {
   return (

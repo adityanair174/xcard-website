@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Activity, BarChart2, MapPin, PlayCircle, Smartphone, Users } from 'lucide-react'
 import Link from "next/link"
+import Image from "next/image"
 
 export default function LandingPage() {
   return (
@@ -41,169 +42,63 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <div className="section-divider"></div>
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32 border-t border-white/10">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Key Features</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="feature-box" role="article" aria-labelledby="feature-1-title">
-                <div className="relative z-10 p-6">
-                  <div className="flex items-center mb-4">
-                    <Activity className="h-8 w-8 text-white mr-3 flex-shrink-0" aria-hidden="true" />
-                    <h3 id="feature-1-title" className="text-xl font-bold text-white">AI-Powered Analytics</h3>
-                  </div>
-                  <p className="text-gray-300">Complex algorithms analyze your gameplay without the need for physical sensors.</p>
-                </div>
-              </div>
-              <div className="feature-box" role="article" aria-labelledby="feature-2-title">
-                <div className="relative z-10 p-6">
-                  <div className="flex items-center mb-4">
-                    <Smartphone className="h-8 w-8 text-white mr-3 flex-shrink-0" aria-hidden="true" />
-                    <h3 id="feature-2-title" className="text-xl font-bold text-white">Mobile Integration</h3>
-                  </div>
-                  <p className="text-gray-300">Receive detailed stats and insights directly on your smartphone within minutes.</p>
-                </div>
-              </div>
-              <div className="feature-box" role="article" aria-labelledby="feature-3-title">
-                <div className="relative z-10 p-6">
-                  <div className="flex items-center mb-4">
-                    <Users className="h-8 w-8 text-white mr-3 flex-shrink-0" aria-hidden="true" />
-                    <h3 id="feature-3-title" className="text-xl font-bold text-white">Accessible to All</h3>
-                  </div>
-                  <p className="text-gray-300">No need to purchase expensive equipment. Just play at our partner centers.</p>
-                </div>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <FeatureCard
+                icon={<Activity className="h-10 w-10" />}
+                title="AI-Powered Analytics"
+                description="Complex algorithms analyze your gameplay without the need for physical sensors."
+              />
+              <FeatureCard
+                icon={<Smartphone className="h-10 w-10" />}
+                title="Mobile Integration"
+                description="Receive detailed stats and insights directly on your smartphone within minutes."
+              />
+              <FeatureCard
+                icon={<Users className="h-10 w-10" />}
+                title="Accessible to All"
+                description="No need to purchase expensive equipment. Just play at our partner centers."
+              />
             </div>
           </div>
         </section>
-        <div className="section-divider"></div>
-        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 border-t border-white/10">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">How It Works</h2>
             <div className="relative max-w-3xl mx-auto">
               <div className="absolute left-1/2 w-0.5 bg-gradient-to-b from-white to-transparent" style={{ top: '24px', bottom: '24px', transform: 'translateX(-50%)' }}></div>
-              <div className="space-y-24">
-                <div className="relative flex items-center">
-                  <div className="flex-1 pr-8 text-right">
-                    <h3 className="text-2xl font-bold mb-2 text-white">Visit a Partner Center</h3>
-                    <p className="text-white max-w-xs ml-auto">Find a nearby xCard partner center and book your session.</p>
-                  </div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-10">
-                    <MapPin className="h-6 w-6 text-black" />
-                  </div>
-                </div>
-                <div className="relative flex items-center">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-10">
-                    <PlayCircle className="h-6 w-6 text-black" />
-                  </div>
-                  <div className="flex-1 pl-8 ml-auto">
-                    <h3 className="text-2xl font-bold mb-2 text-white">Play Your Game</h3>
-                    <p className="text-white max-w-xs">Enjoy your football match without any distractions or equipment.</p>
-                  </div>
-                </div>
-                <div className="relative flex items-center">
-                  <div className="flex-1 pr-8 text-right">
-                    <h3 className="text-2xl font-bold mb-2 text-white">Receive Analytics</h3>
-                    <p className="text-white max-w-xs ml-auto">Get comprehensive stats and insights on your mobile device within minutes.</p>
-                  </div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-10">
-                    <Activity className="h-6 w-6 text-black" />
-                  </div>
-                </div>
-              </div>
+              <TimelineItem
+                icon={<MapPin className="h-6 w-6" />}
+                title="Visit a Partner Center"
+                description="Find a nearby xCard partner center and book your session."
+              />
+              <TimelineItem
+                icon={<PlayCircle className="h-6 w-6" />}
+                title="Play Your Game"
+                description="Enjoy your football match without any distractions or equipment."
+              />
+              <TimelineItem
+                icon={<Activity className="h-6 w-6" />}
+                title="Receive Analytics"
+                description="Get comprehensive stats and insights on your mobile device within minutes."
+              />
             </div>
           </div>
         </section>
-        <div className="section-divider"></div>
-        <section id="benefits" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="benefits" className="w-full py-12 md:py-24 lg:py-32 border-t border-white/10">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Benefits</h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <li className="flex items-start space-x-4">
-                <svg
-                  className="h-6 w-6 text-green-400 mt-1"
-                  fill="none"
-                  height="24"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <div>
-                  <h3 className="font-bold text-xl mb-1">Cost-Effective</h3>
-                  <p className="text-gray-400">No need to invest in expensive equipment or technology.</p>
-                </div>
-              </li>
-              <li className="flex items-start space-x-4">
-                <svg
-                  className="h-6 w-6 text-green-400 mt-1"
-                  fill="none"
-                  height="24"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <div>
-                  <h3 className="font-bold text-xl mb-1">Professional-Grade Analytics</h3>
-                  <p className="text-gray-400">Access the same level of insights as professional players.</p>
-                </div>
-              </li>
-              <li className="flex items-start space-x-4">
-                <svg
-                  className="h-6 w-6 text-green-400 mt-1"
-                  fill="none"
-                  height="24"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <div>
-                  <h3 className="font-bold text-xl mb-1">Improve Your Game</h3>
-                  <p className="text-gray-400">Use data-driven insights to enhance your skills and performance.</p>
-                </div>
-              </li>
-              <li className="flex items-start space-x-4">
-                <svg
-                  className="h-6 w-6 text-green-400 mt-1"
-                  fill="none"
-                  height="24"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <div>
-                  <h3 className="font-bold text-xl mb-1">Track Progress</h3>
-                  <p className="text-gray-400">Monitor your improvement over time with detailed historical data.</p>
-                </div>
-              </li>
-            </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <BenefitItem title="Cost-Effective" description="No need to invest in expensive equipment or technology." />
+              <BenefitItem title="Professional-Grade Analytics" description="Access the same level of insights as professional players." />
+              <BenefitItem title="Improve Your Game" description="Use data-driven insights to enhance your skills and performance." />
+              <BenefitItem title="Track Progress" description="Monitor your improvement over time with detailed historical data." />
+            </div>
           </div>
         </section>
-        <div className="section-divider"></div>
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 border-t border-white/10">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
@@ -231,6 +126,55 @@ export default function LandingPage() {
           </Link>
         </nav>
       </footer>
+    </div>
+  )
+}
+
+function FeatureCard({ icon, title, description }) {
+  return (
+    <div className="flex flex-col items-center text-center p-4 border border-white/10 rounded-lg">
+      <div className="mb-4 p-2 bg-white/10 rounded-full">{icon}</div>
+      <h3 className="text-xl font-bold mb-2">{title}</h3>
+      <p className="text-gray-400">{description}</p>
+    </div>
+  )
+}
+
+function TimelineItem({ icon, title, description }) {
+  return (
+    <div className="relative flex items-center mb-12">
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-10">
+        <div className="text-black">{icon}</div>
+      </div>
+      <div className="ml-20 -mt-2">
+        <h3 className="text-xl font-bold mb-1">{title}</h3>
+        <p className="text-gray-400">{description}</p>
+      </div>
+    </div>
+  )
+}
+
+function BenefitItem({ title, description }) {
+  return (
+    <div className="flex items-start space-x-4">
+      <svg
+        className="h-6 w-6 text-green-400 mt-1 flex-shrink-0"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline points="20 6 9 17 4 12" />
+      </svg>
+      <div>
+        <h3 className="font-bold text-xl mb-1">{title}</h3>
+        <p className="text-gray-400">{description}</p>
+      </div>
     </div>
   )
 }

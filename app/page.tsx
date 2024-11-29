@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Activity, BarChart2, MapPin, PlayCircle, Smartphone, Users } from 'lucide-react'
 import Link from "next/link"
-import "./globals.css"
 
 export default function LandingPage() {
   return (
@@ -47,32 +46,29 @@ export default function LandingPage() {
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Key Features</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="feature-box relative overflow-hidden rounded-lg p-6">
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent opacity-20" style={{ transform: 'rotate(-45deg)', transformOrigin: '0 100%' }}></div>
-                <div className="relative z-10">
+              <div className="feature-box" role="article" aria-labelledby="feature-1-title">
+                <div className="relative z-10 p-6">
                   <div className="flex items-center mb-4">
-                    <Activity className="h-8 w-8 text-white mr-3" />
-                    <h3 className="text-xl font-bold text-white">AI-Powered Analytics</h3>
+                    <Activity className="h-8 w-8 text-white mr-3 flex-shrink-0" aria-hidden="true" />
+                    <h3 id="feature-1-title" className="text-xl font-bold text-white">AI-Powered Analytics</h3>
                   </div>
                   <p className="text-gray-300">Complex algorithms analyze your gameplay without the need for physical sensors.</p>
                 </div>
               </div>
-              <div className="feature-box relative overflow-hidden rounded-lg p-6">
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent opacity-20" style={{ transform: 'rotate(-45deg)', transformOrigin: '0 100%' }}></div>
-                <div className="relative z-10">
+              <div className="feature-box" role="article" aria-labelledby="feature-2-title">
+                <div className="relative z-10 p-6">
                   <div className="flex items-center mb-4">
-                    <Smartphone className="h-8 w-8 text-white mr-3" />
-                    <h3 className="text-xl font-bold text-white">Mobile Integration</h3>
+                    <Smartphone className="h-8 w-8 text-white mr-3 flex-shrink-0" aria-hidden="true" />
+                    <h3 id="feature-2-title" className="text-xl font-bold text-white">Mobile Integration</h3>
                   </div>
                   <p className="text-gray-300">Receive detailed stats and insights directly on your smartphone within minutes.</p>
                 </div>
               </div>
-              <div className="feature-box relative overflow-hidden rounded-lg p-6">
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent opacity-20" style={{ transform: 'rotate(-45deg)', transformOrigin: '0 100%' }}></div>
-                <div className="relative z-10">
+              <div className="feature-box" role="article" aria-labelledby="feature-3-title">
+                <div className="relative z-10 p-6">
                   <div className="flex items-center mb-4">
-                    <Users className="h-8 w-8 text-white mr-3" />
-                    <h3 className="text-xl font-bold text-white">Accessible to All</h3>
+                    <Users className="h-8 w-8 text-white mr-3 flex-shrink-0" aria-hidden="true" />
+                    <h3 id="feature-3-title" className="text-xl font-bold text-white">Accessible to All</h3>
                   </div>
                   <p className="text-gray-300">No need to purchase expensive equipment. Just play at our partner centers.</p>
                 </div>

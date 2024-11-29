@@ -54,11 +54,10 @@
     @apply border-border;
   }
   body {
-    @apply bg-black text-foreground;
+    @apply bg-background text-foreground;
   }
 }
 
-/* Feature box styles */
 .feature-box {
   position: relative;
   background-color: black;
@@ -119,7 +118,6 @@
   }
 }
 
-/* Timeline styles */
 .timeline-item::before {
   content: '';
   position: absolute;
